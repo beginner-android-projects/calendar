@@ -159,5 +159,17 @@
             app:layout_constraintEnd_toEndOf="@id/layout_day_of_week"
             tools:listitem="@layout/item_day" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_now_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@drawable/btn_now_month"
+            android:onClick="@{() -> calendarViewModel.nowMonth()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </layout>

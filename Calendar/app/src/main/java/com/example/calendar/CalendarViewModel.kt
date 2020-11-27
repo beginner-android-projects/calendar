@@ -36,6 +36,11 @@ class CalendarViewModel : ViewModel() {
             _textMonth.value = _textMonth.value!! + 1
     }
 
+    fun nowMonth() {
+        _textMonth.value = calendar.get(Calendar.MONTH)+1
+        _textYear.value = calendar.get(Calendar.YEAR)
+    }
+
     fun getDayList() {
         //LeapYear
         CalendarDataCheck().calendarLeapYearCheck(textYear.value!!)
