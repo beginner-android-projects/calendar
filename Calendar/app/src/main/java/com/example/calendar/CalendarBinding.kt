@@ -1,5 +1,6 @@
 package com.example.calendar
 
+import android.graphics.Color
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -30,5 +31,12 @@ object CalendarBinding {
     @JvmStatic
     fun isNowMonth(textView : TextView, isNowMonth : Boolean) {
         if(!isNowMonth) textView.alpha = 0.3f
+    }
+
+    @BindingAdapter("dayTextColor")
+    @JvmStatic
+    fun dayTextColor(textView : TextView, date : Int) {
+        if(date%7==0) textView.setTextColor(Color.RED)
+        else if(date%7==6) textView.setTextColor(Color.BLUE)
     }
 }
