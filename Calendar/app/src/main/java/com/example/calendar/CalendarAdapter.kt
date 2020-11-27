@@ -18,11 +18,6 @@ class CalendarAdapter(private var list: List<CalendarData>) : RecyclerView.Adapt
         holder.bind(list[position])
     }
 
-    internal fun setData(list : List<CalendarData>) {
-        this.list = list
-        notifyDataSetChanged()
-    }
-
     inner class VHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
 
         private val binding : ItemDayBinding = DataBindingUtil.bind(itemView)!!
