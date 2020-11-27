@@ -86,7 +86,7 @@ class CalendarViewModel : ViewModel() {
             }
             //month
             for (i in 1..lastIndex) { // 1일부터 endDay까지
-                if (CalendarDataCheck().calendarTodayCheck(i, textMonth.value!!, textYear.value!!))
+                if (CalendarDataCheck().calendarTodayCheck(i, textYear.value!!, textMonth.value!!))
                     add(
                         CalendarData(
                             year = textYear.value!!,
