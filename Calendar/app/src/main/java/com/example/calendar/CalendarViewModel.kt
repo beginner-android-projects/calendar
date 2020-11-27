@@ -15,4 +15,20 @@ class CalendarViewModel : ViewModel() {
     private val _textYear = MutableLiveData<Int>(calendar.get(Calendar.YEAR))
     val textYear : LiveData<Int>
         get() = _textYear
+
+    fun prevMonth() {
+        if(_textMonth.value==1){
+            _textMonth.value = 12
+            _textYear.value = _textYear.value!! - 1
+        } else
+            _textMonth.value = _textMonth.value!! - 1
+    }
+
+    fun nextMonth() {
+        if(_textMonth.value==12){
+            _textMonth.value = 1
+            _textYear.value = _textYear.value!! + 1
+        } else
+            _textMonth.value = _textMonth.value!! + 1
+    }
 }

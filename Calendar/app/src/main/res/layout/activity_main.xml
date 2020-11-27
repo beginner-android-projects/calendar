@@ -30,6 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_prev_month"
+                android:onClick="@{() -> calendarViewModel.prevMonth()}"
                 tools:ignore="ContentDescription" />
 
             <TextView
@@ -47,6 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_next_month"
+                android:onClick="@{() -> calendarViewModel.nextMonth()}"
                 tools:ignore="ContentDescription" />
 
         </LinearLayout>
