@@ -19,4 +19,10 @@ object CalendarBinding {
             recyclerView.adapter = adapter
         }
     }
+
+    @BindingAdapter("setDayText")
+    @JvmStatic
+    fun setDayText(textView : TextView, day : Int) {
+        textView.text = day.toString()
+    }
 }
