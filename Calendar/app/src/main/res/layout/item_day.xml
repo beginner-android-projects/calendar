@@ -21,6 +21,7 @@
             android:textColor="@color/black"
             android:textSize="16sp"
             setDayText="@{calendarData.day}"
+            isNowMonth="@{calendarData.isNowMonth}"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -25,4 +25,10 @@ object CalendarBinding {
     fun setDayText(textView : TextView, day : Int) {
         textView.text = day.toString()
     }
+
+    @BindingAdapter("isNowMonth")
+    @JvmStatic
+    fun isNowMonth(textView : TextView, isNowMonth : Boolean) {
+        if(!isNowMonth) textView.alpha = 0.3f
+    }
 }
