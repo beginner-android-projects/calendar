@@ -39,4 +39,10 @@ object CalendarBinding {
         if(date%7==0) textView.setTextColor(Color.RED)
         else if(date%7==6) textView.setTextColor(Color.BLUE)
     }
+
+    @BindingAdapter("isToday")
+    @JvmStatic
+    fun isToday(textView : TextView, isToday : Boolean) {
+        if(isToday) textView.setBackgroundResource(R.drawable.background_today)
+    }
 }
