@@ -43,6 +43,9 @@ object CalendarBinding {
     @BindingAdapter("isToday")
     @JvmStatic
     fun isToday(textView : TextView, isToday : Boolean) {
-        if(isToday) textView.setBackgroundResource(R.drawable.background_today)
+        if(isToday) {
+            textView.setBackgroundResource(R.drawable.background_today)
+            textView.setTextColor(Color.WHITE)
+        }
     }
 }
