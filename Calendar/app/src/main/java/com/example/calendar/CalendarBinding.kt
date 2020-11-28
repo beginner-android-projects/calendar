@@ -33,14 +33,20 @@ object CalendarBinding {
     @BindingAdapter("isNowMonth")
     @JvmStatic
     fun isNowMonth(textView : TextView, isNowMonth : Boolean) {
-        if(!isNowMonth) textView.alpha = 0.3f
+        when {
+            !isNowMonth -> textView.alpha = 0.3f
+            else -> textView.alpha = 1f
+        }
     }
 
     @BindingAdapter("dayTextColor")
     @JvmStatic
     fun dayTextColor(textView : TextView, date : Int) {
-        if(date%7==0) textView.setTextColor(Color.RED)
-        else if(date%7==6) textView.setTextColor(Color.BLUE)
+        when {
+            date%7==0 -> textView.setTextColor(Color.RED)
+            date%7==6 -> textView.setTextColor(Color.BLUE)
+            else -> textView.setTextColor(Color.BLACK)
+        }
     }
 
     @BindingAdapter("isToday")
