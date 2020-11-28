@@ -9,7 +9,7 @@ object CalendarBinding {
     @BindingAdapter("nowYear", "nowMonth")
     @JvmStatic
     fun nowYearMonth(textView : TextView, year : Int, month : Int) {
-        textView.text = "$year / $month"
+        textView.text = String.format(textView.context.resources.getString(R.string.yearMonth), year, month)
     }
 
     @BindingAdapter("setAdapter")
