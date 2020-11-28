@@ -24,7 +24,10 @@ object CalendarDataCheck {
         return daySum % 7
     }
 
-    fun getLastDay(month : Int) = endDay[month - 1]
+    fun getLastDay(year : Int, month : Int) : Int {
+        calendar.set(year, month-1,1)
+        return calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+    }
 
     fun calendarTodayCheck(i : Int, year : Int, month : Int) : Boolean { //today
         return (i == nowDay && year == nowYear && month == nowMonth)
@@ -34,13 +37,6 @@ object CalendarDataCheck {
         return when (month) {
             1 -> endDay[11] - index + 1
             else -> endDay[month-2] - index + 1
-        }
-    }
-
-    fun calendarLeapYearCheck(year : Int) {
-        when {
-            year % 4 == 0 && year % 100 != 0 || year % 400 == 0 -> this.endDay[1] = 29
-            else -> this.endDay[1] = 28
         }
     }
 }
