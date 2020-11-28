@@ -57,4 +57,10 @@ object CalendarBinding {
             textView.setTextColor(Color.WHITE)
         }
     }
+
+    @BindingAdapter("setCalendarViewModel", "setCalendar")
+    @JvmStatic
+    fun setCalendar(recyclerView : RecyclerView, calendarViewModel : CalendarViewModel, setCalendar : Boolean) {
+        recyclerView.let { if(setCalendar) { calendarViewModel.getDayList() } }
+    }
 }

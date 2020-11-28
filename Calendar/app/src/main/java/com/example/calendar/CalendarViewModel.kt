@@ -20,12 +20,17 @@ class CalendarViewModel : ViewModel() {
     val calendarData : LiveData<MutableList<CalendarData>>
         get() = _calendarData
 
+    private val _setCalendar= MutableLiveData<Boolean>(true)
+    val setCalendar : LiveData<Boolean>
+        get() = _setCalendar
+
     fun prevMonth() {
         if(_textMonth.value==1){
             _textMonth.value = 12
             _textYear.value = _textYear.value!! - 1
         } else
             _textMonth.value = _textMonth.value!! - 1
+        _setCalendar.value = true
     }
 
     fun nextMonth() {
@@ -34,11 +39,13 @@ class CalendarViewModel : ViewModel() {
             _textYear.value = _textYear.value!! + 1
         } else
             _textMonth.value = _textMonth.value!! + 1
+        _setCalendar.value = true
     }
 
     fun nowMonth() {
         _textMonth.value = calendar.get(Calendar.MONTH)+1
         _textYear.value = calendar.get(Calendar.YEAR)
+        _setCalendar.value = true
     }
 
     fun getDayList() {
