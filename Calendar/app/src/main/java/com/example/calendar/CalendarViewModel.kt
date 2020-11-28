@@ -43,14 +43,14 @@ class CalendarViewModel : ViewModel() {
 
     fun getDayList() {
         //LeapYear
-        CalendarDataCheck().calendarLeapYearCheck(textYear.value!!)
+        CalendarDataCheck.calendarLeapYearCheck(textYear.value!!)
 
         //month
-        val index = CalendarDataCheck().getFirstDay(textYear.value!!, textMonth.value!!)
-        val lastIndex  = CalendarDataCheck().getLastDay(textMonth.value!!)
+        val index = CalendarDataCheck.getFirstDay(textYear.value!!, textMonth.value!!)
+        val lastIndex  = CalendarDataCheck.getLastDay(textMonth.value!!)
 
         //previous_month
-        var prevEmptyIndex = CalendarDataCheck().calendarPreviousIndexCheck(textMonth.value!!, index)
+        var prevEmptyIndex = CalendarDataCheck.calendarPreviousIndexCheck(textMonth.value!!, index)
 
         //next_month
         var lastEmpty = index + lastIndex
@@ -91,7 +91,7 @@ class CalendarViewModel : ViewModel() {
             }
             //month
             for (i in 1..lastIndex) {
-                if (CalendarDataCheck().calendarTodayCheck(i, textYear.value!!, textMonth.value!!))
+                if (CalendarDataCheck.calendarTodayCheck(i, textYear.value!!, textMonth.value!!))
                     add(
                         CalendarData(
                             year = textYear.value!!,

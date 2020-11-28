@@ -2,7 +2,7 @@ package com.example.calendar
 
 import java.util.*
 
-class CalendarDataCheck {
+object CalendarDataCheck {
     var calendar : Calendar = Calendar.getInstance()
     private var nowDay = calendar.get(Calendar.DATE)
     private var nowMonth = calendar.get(Calendar.MONTH)+1
