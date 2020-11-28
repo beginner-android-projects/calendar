@@ -14,11 +14,8 @@ object CalendarBinding {
 
     @BindingAdapter("setAdapter")
     @JvmStatic
-    fun setAdapter(recyclerView : RecyclerView, list : List<CalendarData>?) {
-        list?.let{
-            val adapter = CalendarAdapter(list)
-            recyclerView.adapter = adapter
-        }
+    fun setAdapter(recyclerView : RecyclerView, adapter : CalendarAdapter) {
+        recyclerView.adapter = adapter
     }
 
     @BindingAdapter("setDayText")

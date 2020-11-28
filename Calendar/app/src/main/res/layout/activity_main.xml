@@ -8,6 +8,11 @@
             name="calendarViewModel"
             type="com.example.calendar.CalendarViewModel">
         </variable>
+
+        <variable
+            name="calendarAdapter"
+            type="com.example.calendar.CalendarAdapter">
+        </variable>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -159,7 +164,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            setAdapter="@{calendarViewModel.calendarData}"
+            setAdapter="@{calendarAdapter}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="7"
             app:layout_constraintTop_toBottomOf="@id/underline"
