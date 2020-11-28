@@ -7,7 +7,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.calendar.databinding.ItemDayBinding
 
-class CalendarAdapter(private var list: List<CalendarData>) : RecyclerView.Adapter<CalendarAdapter.VHolder>(){
+class CalendarAdapter : RecyclerView.Adapter<CalendarAdapter.VHolder>(){
+
+    private var list = emptyList<CalendarData>()
 
     override fun onCreateViewHolder(parent : ViewGroup, viewType : Int)
             = VHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_day, parent, false))
@@ -16,6 +18,11 @@ class CalendarAdapter(private var list: List<CalendarData>) : RecyclerView.Adapt
 
     override fun onBindViewHolder(holder: VHolder, position: Int) {
         holder.bind(list[position])
+    }
+
+    fun setDays(list : List<CalendarData>){
+        this.list = list
+        notifyDataSetChanged()
     }
 
     inner class VHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {

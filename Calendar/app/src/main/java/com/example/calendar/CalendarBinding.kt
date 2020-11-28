@@ -18,6 +18,12 @@ object CalendarBinding {
         recyclerView.adapter = adapter
     }
 
+    @BindingAdapter("setDays")
+    @JvmStatic
+    fun setDays(recyclerView : RecyclerView, list : List<CalendarData>?) {
+         if (recyclerView.adapter != null) with(recyclerView.adapter as CalendarAdapter) { list?.let{ setDays(it) }}
+    }
+
     @BindingAdapter("setDayText")
     @JvmStatic
     fun setDayText(textView : TextView, day : Int) {
