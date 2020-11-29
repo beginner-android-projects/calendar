@@ -79,74 +79,32 @@
             app:layout_constraintEnd_toEndOf="@id/layout_month">
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/sunday"
-                android:textColor="@color/red"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                style="@style/Sunday" />
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/monday"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                style="@style/Weekday" />
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/tuesday"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                style="@style/Weekday" />
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/wednesday"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                style="@style/Weekday" />
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/thursday"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                style="@style/Weekday" />
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/friday"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                style="@style/Weekday" />
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/saturday"
-                android:textColor="@color/blue"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                style="@style/Saturday" />
         </LinearLayout>
 
         <View
