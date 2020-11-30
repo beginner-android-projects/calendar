@@ -55,7 +55,7 @@ object CalendarBinding {
         if(isToday) {
             textView.setBackgroundResource(R.drawable.background_today)
             textView.setTextColor(Color.WHITE)
-        }
+        } else textView.setBackgroundResource(0)
     }
 
     @BindingAdapter("setCalendarViewModel", "setCalendar")
