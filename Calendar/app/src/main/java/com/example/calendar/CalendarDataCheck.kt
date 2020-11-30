@@ -10,18 +10,8 @@ object CalendarDataCheck {
     private var endDay = arrayOf(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
 
     fun getFirstDay(year : Int, month : Int) : Int{
-        val preYear = year-1
-        var daySum = preYear*365 + preYear/4 - preYear/100 + preYear/400
-
-        if (month>=3 && (year%4==0 && year%100!=0 || year%400 ==0)) daySum += 1
-
-        val preMonth = month - 1
-
-        for (i in 0 until preMonth) daySum += endDay[i]
-
-        daySum += 1
-
-        return daySum % 7
+        calendar.set(year, month-1, 1)
+        return calendar.get(Calendar.DAY_OF_WEEK) - 1
     }
 
     fun getLastDay(year : Int, month : Int) : Int {
