@@ -49,9 +49,12 @@ class CalendarViewModel : ViewModel() {
     }
 
     fun getDayList() {
+        //init
+        CalendarDataCheck.setNowMonth(textYear.value!!, textMonth.value!!)
+
         //month
-        val firstIndex = CalendarDataCheck.getFirstDay(textYear.value!!, textMonth.value!!)
-        val lastIndex  = CalendarDataCheck.getLastDay(textYear.value!!, textMonth.value!!)
+        val firstIndex = CalendarDataCheck.getFirstDay()
+        val lastIndex  = CalendarDataCheck.getLastDay()
 
         //previous_month
         var prevEmptyIndex = CalendarDataCheck.calendarPreviousIndexCheck(textMonth.value!!, firstIndex)

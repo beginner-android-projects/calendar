@@ -9,17 +9,15 @@ object CalendarDataCheck {
     private var nowYear = calendar.get(Calendar.YEAR)
     private var endDay = arrayOf(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
 
-    fun getFirstDay(year : Int, month : Int) : Int{
+    fun setNowMonth(year : Int, month : Int) {
         calendar.set(year, month-1, 1)
-        return calendar.get(Calendar.DAY_OF_WEEK) - 1
     }
 
-    fun getLastDay(year : Int, month : Int) : Int {
-        calendar.set(year, month-1,1)
-        return calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
-    }
+    fun getFirstDay() = calendar.get(Calendar.DAY_OF_WEEK) - 1
 
-    fun calendarTodayCheck(i : Int, year : Int, month : Int) : Boolean { //today
+    fun getLastDay() = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+
+    fun calendarTodayCheck(i : Int, year : Int, month : Int) : Boolean {
         return (i == nowDay && year == nowYear && month == nowMonth)
     }
 
