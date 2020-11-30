@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.calendar.databinding.ItemDayBinding
 
@@ -20,9 +21,11 @@ class CalendarAdapter : RecyclerView.Adapter<CalendarAdapter.VHolder>(){
         holder.bind(list[position])
     }
 
-    fun setDays(list : List<CalendarData>){
-        this.list = list
-        notifyDataSetChanged()
+    fun setDays(newList : List<CalendarData>){
+        val diffUtilCallBack = CalendarDiffUtil(list, newList)
+        val diffResult = DiffUtil.calculateDiff(diffUtilCallBack)
+        this.list = newList
+        diffResult.dispatchUpdatesTo(this)
     }
 
     inner class VHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
