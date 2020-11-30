@@ -48,6 +48,12 @@ class CalendarViewModel : ViewModel() {
         _setCalendar.value = true
     }
 
+    fun picker(year : Int, month : Int) {
+        _textYear.value = year
+        _textMonth.value = month
+        _setCalendar.value = true
+    }
+
     fun getDayList() {
         //init
         CalendarDataCheck.setNowMonth(textYear.value!!, textMonth.value!!)
