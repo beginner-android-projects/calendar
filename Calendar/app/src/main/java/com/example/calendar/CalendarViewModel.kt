@@ -50,21 +50,21 @@ class CalendarViewModel : ViewModel() {
 
     fun getDayList() {
         //month
-        val index = CalendarDataCheck.getFirstDay(textYear.value!!, textMonth.value!!)
+        val firstIndex = CalendarDataCheck.getFirstDay(textYear.value!!, textMonth.value!!)
         val lastIndex  = CalendarDataCheck.getLastDay(textYear.value!!, textMonth.value!!)
 
         //previous_month
-        var prevEmptyIndex = CalendarDataCheck.calendarPreviousIndexCheck(textMonth.value!!, index)
+        var prevEmptyIndex = CalendarDataCheck.calendarPreviousIndexCheck(textMonth.value!!, firstIndex)
 
         //next_month
-        var lastEmpty = index + lastIndex
+        var lastEmpty = firstIndex + lastIndex
         var lastEmptyIndex = 1
 
         val tempList = mutableListOf<CalendarData>()
         tempList.apply {
             //previous_month
             var date = 0
-            for (i in 0 until index) {
+            for (i in 0 until firstIndex) {
                 if (textMonth.value == 1) {
                     add(
                         CalendarData(
@@ -76,8 +76,6 @@ class CalendarViewModel : ViewModel() {
                             isNowMonth = false
                         )
                     )
-                    date += 1
-                    prevEmptyIndex += 1
                 } else {
                     add(
                         CalendarData(
@@ -89,9 +87,9 @@ class CalendarViewModel : ViewModel() {
                             isNowMonth = false
                         )
                     )
-                    date += 1
-                    prevEmptyIndex += 1
                 }
+                date += 1
+                prevEmptyIndex += 1
             }
             //month
             for (i in 1..lastIndex) {
@@ -120,9 +118,9 @@ class CalendarViewModel : ViewModel() {
                 date += 1
             }
             //next_month
-            if (textMonth.value!! == 12) {
-                while (true) {
-                    if (lastEmpty % 7 != 0) {
+            while (true) {
+                if (lastEmpty % 7 != 0) {
+                    if (textMonth.value!! == 12) {
                         add(
                             CalendarData(
                                 year = textYear.value!! + 1,
@@ -133,14 +131,7 @@ class CalendarViewModel : ViewModel() {
                                 isNowMonth = false
                             )
                         )
-                        lastEmptyIndex += 1
-                        lastEmpty += 1
-                        date += 1
-                    } else break
-                }
-            } else {
-                while (true) {
-                    if (lastEmpty % 7 != 0) {
+                    } else {
                         add(
                             CalendarData(
                                 year = textYear.value!!,
@@ -151,11 +142,11 @@ class CalendarViewModel : ViewModel() {
                                 isNowMonth = false
                             )
                         )
-                        lastEmptyIndex += 1
-                        lastEmpty += 1
-                        date += 1
-                    } else break
-                }
+                    }
+                    lastEmptyIndex += 1
+                    lastEmpty += 1
+                    date += 1
+                } else break
             }
             _calendarData.value = tempList
         }
