@@ -22,7 +22,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_month"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             app:layout_constraintTop_toTopOf="parent"
@@ -33,10 +33,11 @@
                 android:id="@+id/btn_prev_month"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_marginStart="20dp"
                 android:background="@drawable/btn_prev_month"
                 android:onClick="@{() -> calendarViewModel.prevMonth()}"
                 tools:ignore="ContentDescription"
-                app:layout_constraintEnd_toStartOf="@id/tv_month"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tv_month"
                 app:layout_constraintBottom_toBottomOf="@id/tv_month"/>
 
@@ -44,7 +45,6 @@
                 android:id="@+id/tv_month"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 nowYear="@{calendarViewModel.textYear}"
                 nowMonth="@{calendarViewModel.textMonth}"
                 android:textColor="@color/black"
@@ -55,13 +55,25 @@
                 app:layout_constraintEnd_toEndOf="parent"/>
 
             <ImageButton
+                android:id="@+id/btn_select_month"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/btn_select_month"
+                tools:ignore="ContentDescription"
+                app:layout_constraintStart_toEndOf="@id/tv_month"
+                app:layout_constraintTop_toTopOf="@id/tv_month"
+                app:layout_constraintBottom_toBottomOf="@id/tv_month"/>
+
+            <ImageButton
                 android:id="@+id/btn_next_month"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/btn_next_month"
                 android:onClick="@{() -> calendarViewModel.nextMonth()}"
                 tools:ignore="ContentDescription"
-                app:layout_constraintStart_toEndOf="@id/tv_month"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tv_month"
                 app:layout_constraintBottom_toBottomOf="@id/tv_month"/>
 
@@ -136,10 +148,10 @@
             android:id="@+id/btn_now_month"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_margin="16dp"
             android:src="@drawable/btn_now_month"
             android:onClick="@{() -> calendarViewModel.nowMonth()}"
-            app:layout_constraintTop_toBottomOf="@id/rv_calendar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
