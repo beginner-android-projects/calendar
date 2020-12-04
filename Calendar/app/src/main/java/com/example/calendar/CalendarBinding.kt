@@ -12,12 +12,6 @@ object CalendarBinding {
         textView.text = String.format(textView.context.resources.getString(R.string.yearMonth), year, month)
     }
 
-    @BindingAdapter("setAdapter")
-    @JvmStatic
-    fun setAdapter(recyclerView : RecyclerView, adapter : CalendarAdapter) {
-        recyclerView.adapter = adapter
-    }
-
     @BindingAdapter("setDays")
     @JvmStatic
     fun setDays(recyclerView : RecyclerView, list : List<CalendarData>?) {

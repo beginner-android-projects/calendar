@@ -11,11 +11,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding : ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        val binding: ActivityMainBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.calendarViewModel = calendarViewModel
-        binding.calendarAdapter = CalendarAdapter()
         binding.lifecycleOwner = this
 
+        setAdapter(binding)
+        setCalendarPicker(binding)
+    }
+    private fun setAdapter(binding : ActivityMainBinding) {
+        val adapter = CalendarAdapter()
+        binding.rvCalendar.adapter = adapter
+    }
+
+    private fun setCalendarPicker(binding : ActivityMainBinding) {
         binding.btnSelectMonth.setOnClickListener {
             CalendarPicker.apply{
                 setLayout(this@MainActivity)
